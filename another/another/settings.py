@@ -9,8 +9,10 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-
+import os 
 from pathlib import Path
+import dj_database_url 
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'view',
 ]
 
 MIDDLEWARE = [
@@ -78,6 +81,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+DATABASES['default'] =dj_database_url.parse('postgresql://countdowun_user:qftnngRhd3sIZRMMrMK7i2tY7Qec57hC@dpg-d2vbak15pdvs73b8agb0-a.oregon-postgres.render.com/countdowun')
 
 
 # Password validation
